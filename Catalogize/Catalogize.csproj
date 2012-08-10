@@ -61,6 +61,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Base.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="IBase.cs" />
+    <Compile Include="IBook.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
