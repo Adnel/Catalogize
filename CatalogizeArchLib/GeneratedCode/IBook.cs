@@ -9,21 +9,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Catalogize
+public interface IBook 
 {
-    public interface IBase
-    {
-        List<Book> _bookBase { get; set; }
+	string Name { get;set; }
 
-        bool Add(Book book);
+	string Author { get;set; }
 
-        Book Find(string valueType, string value);
+	int PublicationDate { get;set; }
 
-        bool Remove(Book book);
+	int Raiting { get;set; }
 
-        bool Change(Book book);
+	string Path { get;set; }
 
-        bool Save();
+	object _Id { get;set; }
 
-    }
 }
+

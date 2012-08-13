@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-namespace File_Lib
+namespace Catalogize
 {
-    interface IBook
+     interface IBook
     {
-        string Author { get; set; }
         string Name { get; set; }
-        int _publDate { get; set; }
-        int _raiting { get; set; }
-        string _theme { get; set; }
-        string _path { get; set; }
+
+        string Author { get; set; }
+
+        int PublicationDate { get; set; }
+
+        int Raiting { get; set; }
+
+        string Path { get; set; }
+
+        int _Id { get; set; }
+
+        bool Check();
     }
 }
+

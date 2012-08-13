@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Catalogize
 {
-    public interface IBase
+     interface IBase
     {
         List<Book> _bookBase { get; set; }
 
@@ -22,8 +22,6 @@ namespace Catalogize
         bool Remove(Book book);
 
         bool Change(Book book);
-
-        bool Save();
 
     }
 }

@@ -22,6 +22,23 @@ namespace Catalogize
         public MainWindow()
         {
             InitializeComponent();
+            new Initialize(@"D:/Base.xml");
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Base bd = new Base(@"D:\Base.xml");
+            if(bd.Add(new Book("Blah", "Blah", "D||", 2011, 5)))
+                MessageBox.Show("Added 1");
+            if(bd.Add(new Book("ASD", "ASD", "D", 2011, 3)))
+                MessageBox.Show("Added 2");
+            if(bd.Save())
+                MessageBox.Show("Saved");
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

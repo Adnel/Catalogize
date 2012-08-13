@@ -8,20 +8,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
 namespace Catalogize
 {
-    public class Book : IBook
+     class Book : IBook
     {
-        
-
-        public Book(string Name, string Author, string Path, int PublicationDate, int Raiting, int id=0)
+        public Book(string Name, string Author, string Path, int PublicationDate, int Raiting, int Id)
         {
             this.Name = Name;
             this.Author = Author;
             this.Path = Path;
             this.PublicationDate = PublicationDate;
             this.Raiting = Raiting;
-            this._Id = id;
+            this._Id = Id;
         }
         public virtual string Author
         {
@@ -59,15 +58,6 @@ namespace Catalogize
             set;
         }
 
-        public virtual bool Check()
-        {
-            bool isOk;
-            if (Name != "" && Author != "" && Path != "" && PublicationDate != 0 && Raiting >= 0 && _Id >= 0)
-                isOk = true;
-            else
-                isOk = false;
-            return isOk;
-        }
     }
 
 }
