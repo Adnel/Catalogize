@@ -40,5 +40,14 @@ namespace Catalogize
         {
 
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Book bk = new Book("Blah", "Blah", "D||", 2011, 5, 2);
+            Base bd = new Base(@"D:\Base.xml");
+            if (bd.Remove(bk))
+                MessageBox.Show("Removed");
+            bd.Save();
+        }
     }
 }

@@ -46,7 +46,7 @@ namespace Catalogize
             
         }
 
-        public virtual Book Find(string valueType, string value)
+        public virtual Book Find(string value)
         {
             var findedBook = from bk in _bookBase
                        where bk.Name.Contains(value) ||
@@ -62,13 +62,11 @@ namespace Catalogize
 
         public virtual bool Remove(Book book)
         {
-            var bookToDel = from bk in _bookBase
-                            where bk._Id == book._Id
-                            select bk;
-
-            foreach (Book l in bookToDel)
-                _bookBase.Remove(l);
-            return true;
+            
+            
+                    
+            
+            
         }
 
         public virtual bool Change(Book book)

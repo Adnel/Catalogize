@@ -17,7 +17,7 @@ namespace Catalogize
 
         bool Add(Book book);
 
-        Book Find(string valueType, string value);
+        Book Find(string value);
 
         bool Remove(Book book);
 
