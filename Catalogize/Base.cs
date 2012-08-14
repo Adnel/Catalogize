@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Catalogize
 {
-     class Base : IBase
+    public class Base : IBase
     {
        public List<Book> _bookBase { get; set; }
         XDocument xmlData { get; set; }
@@ -46,26 +46,31 @@ namespace Catalogize
             
         }
 
-        public virtual Book Find(string value)
+        public virtual List<Book> Find(string value)
         {
-            var findedBook = from bk in _bookBase
-                       where bk.Name.Contains(value) ||
-                       bk.Author.Contains(value) ||
-                       bk.Raiting == Int32.Parse(value) ||
-                       bk.PublicationDate == Int32.Parse(value)
-                       select bk;
-            foreach (Book l in findedBook)
-                return l;
+            List <Book> results = _bookBase.FindAll(
+            delegate(Book bk)
+            {
+                return bk.Name.Contains(value) || bk.Author.Contains(value);
+            }
+            );
+            if (results.Count != 0)
+            {
+                return results;
+            }
+            else
+            {
+                return null;
+            }
 
-            return null;
         }
 
         public virtual bool Remove(Book book)
         {
-            
-            
-                    
-            
+
+
+            _bookBase.Remove(book);
+            return true;
             
         }
 
@@ -78,6 +83,7 @@ namespace Catalogize
 
         public virtual bool Save()
         {
+            int _id = 0;
             xmlData = new XDocument(new XElement("Library"));
             foreach(Book bk in _bookBase)
             {
@@ -87,12 +93,14 @@ namespace Catalogize
                     new XAttribute("PublicationDate", bk.PublicationDate),
                     new XAttribute("Path", bk.Path),
                     new XAttribute("Raiting", bk.Raiting),
-                    new XAttribute("Id", bk._Id)));
+                    new XAttribute("Id", _id)));
+                _id++;
                 
             }
             xmlData.Save(this._path);
             return true;
         }
+
     }
 }
 

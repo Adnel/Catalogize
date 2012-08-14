@@ -19,35 +19,67 @@ namespace Catalogize
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Base BookBase { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            new Initialize(@"D:/Base.xml");
+            new Initialize(@"D:\Base.xml");
+            BookBase = new Base(@"D:\Base.xml");
+            BookBaseDataGrid.ItemsSource = BookBase._bookBase;
+           
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void FindButton_Click(object sender, RoutedEventArgs e)
         {
-            Base bd = new Base(@"D:\Base.xml");
-            if(bd.Add(new Book("Blah", "Blah", "D||", 2011, 5)))
-                MessageBox.Show("Added 1");
-            if(bd.Add(new Book("ASD", "ASD", "D", 2011, 3)))
-                MessageBox.Show("Added 2");
-            if(bd.Save())
-                MessageBox.Show("Saved");
+            List<Book> FindedBooks = new List<Book>();
+            FindedBooks = BookBase.Find(FindValue.Text);
+            SearchResultsWindow wn = new SearchResultsWindow(FindedBooks, BookBase);
+            if (FindedBooks[0] != null)
+                wn.Show();
+            else
+                MessageBox.Show("Книга не найдена");
+            
         }
 
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        private void BookBaseDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BookBase.Save();
+            BookBaseDataGrid.Items.Refresh();
+            Book bk = BookBaseDataGrid.SelectedItem as Book;
+            FindValue.Text = bk.Name;
+        }
+
+        private void MainOpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            Book bk;
+            bk = BookBaseDataGrid.SelectedItem as Book;
+            if(bk!=null)
+                System.Diagnostics.Process.Start(bk.Path);
+        }
+
+        private void MainAddButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddWindow addwn = new AddWindow(BookBase);
+            addwn.Show();
+        }
+
+        private void MainWindowActivated(object sender, EventArgs e)
+        {
+            BookBaseDataGrid.Items.Refresh();
+        }
+
+        private void MainWindowClosed(object sender, EventArgs e)
+        {
+            BookBase.Save();
+        }
+
+        private void FindValue_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Book bk = new Book("Blah", "Blah", "D||", 2011, 5, 2);
-            Base bd = new Base(@"D:\Base.xml");
-            if (bd.Remove(bk))
-                MessageBox.Show("Removed");
-            bd.Save();
-        }
+
+
+
     }
 }

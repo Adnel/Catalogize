@@ -1,0 +1,22 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Catalogize.AddWindow"
+        Title="AddWindow" Height="248" Width="320">
+    <Grid>
+        <TextBox x:Name="BookName" HorizontalAlignment="Left" Height="23" Margin="115,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" SpellCheck.IsEnabled="True"/>
+        <TextBox x:Name="BookAuthor" HorizontalAlignment="Left" Height="23" Margin="115,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
+        <TextBox x:Name="BookPublDate" HorizontalAlignment="Left" Height="23" Margin="189,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextChanged="BookPublDate_TextChanged"/>
+        <TextBox x:Name="BookPath" HorizontalAlignment="Left" Height="23" Margin="189,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85"/>
+        <Button x:Name="BrowseButton" Content="Обзор" HorizontalAlignment="Left" Margin="115,95,0,0" VerticalAlignment="Top" Width="69" Click="BrowseButton_Click" />
+        <TextBox x:Name="BookRaiting" HorizontalAlignment="Left" Height="23" Margin="189,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextChanged="BookRaiting_TextChanged"/>
+        <Button x:Name="DenyButton" Content="Омена" HorizontalAlignment="Left" Margin="219,178,0,0" VerticalAlignment="Top" Width="75" Click="DenyButtonClick"/>
+        <Button x:Name="AddButton" Content="Добавить" HorizontalAlignment="Left" Margin="139,178,0,0" VerticalAlignment="Top" Width="75" Click="AddButton_Click"/>
+        <Label Content="Название" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Автор" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дата публикации" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top" Width="105"/>
+        <Label Content="Путь к файлу" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" Width="90"/>
+        <Label Content="Рейтинг" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Width="90"/>
+
+    </Grid>
+</Window>
