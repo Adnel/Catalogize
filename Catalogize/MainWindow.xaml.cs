@@ -23,8 +23,8 @@ namespace Catalogize
         public MainWindow()
         {
             InitializeComponent();
-            new Initialize(@"D:\Base.xml");
-            BookBase = new Base(@"D:\Base.xml");
+            new Initialize(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData)+"\\Base.xml");
+            BookBase = new Base(System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData) + "\\Base.xml");
             BookBaseDataGrid.ItemsSource = BookBase._bookBase;
            
         }
