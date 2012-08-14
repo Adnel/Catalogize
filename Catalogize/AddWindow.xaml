@@ -1,8 +1,7 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Catalogize.AddWindow"
-        Title="AddWindow" Height="248" Width="320">
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Catalogize.AddWindow" Height="248" Width="320" Title="Добавление елемента">
     <Grid>
         <TextBox x:Name="BookName" HorizontalAlignment="Left" Height="23" Margin="115,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159" SpellCheck.IsEnabled="True"/>
         <TextBox x:Name="BookAuthor" HorizontalAlignment="Left" Height="23" Margin="115,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="159"/>
