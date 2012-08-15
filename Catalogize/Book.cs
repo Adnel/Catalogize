@@ -23,13 +23,15 @@ namespace Catalogize
             this.Raiting = Raiting;
             this._Id = id;
         }
-        public virtual string Author
+        
+
+        public virtual string Name
         {
             get;
             set;
         }
 
-        public virtual string Name
+        public virtual string Author
         {
             get;
             set;

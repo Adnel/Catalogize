@@ -48,20 +48,25 @@ namespace Catalogize
 
         public virtual List<Book> Find(string value)
         {
-            List <Book> results = _bookBase.FindAll(
-            delegate(Book bk)
+            if (value != "")
             {
-                return bk.Name.Contains(value) || bk.Author.Contains(value);
-            }
-            );
-            if (results.Count != 0)
-            {
-                return results;
+                List<Book> results = _bookBase.FindAll(
+                delegate(Book bk)
+                {
+                    return bk.Name.Contains(value) || bk.Author.Contains(value);
+                }
+                );
+                if (results.Count != 0)
+                {
+                    return results;
+                }
+                else
+                {
+                    return null;
+                }
             }
             else
-            {
                 return null;
-            }
 
         }
 
