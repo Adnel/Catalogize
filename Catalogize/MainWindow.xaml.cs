@@ -44,8 +44,6 @@ namespace Catalogize
 
         private void BookBaseDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            BookBase.Save();
-            BookBaseDataGrid.Items.Refresh();
             Book bk = BookBaseDataGrid.SelectedItem as Book;
             FindValue.Text = bk.Name;
         }
@@ -79,6 +77,11 @@ namespace Catalogize
 
         }
 
+
+        private void RefreshMainDataGrid_Click(object sender, RoutedEventArgs e)
+        {
+            BookBaseDataGrid.Items.Refresh();
+        }
 
 
 

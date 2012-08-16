@@ -15,6 +15,15 @@
         <Button x:Name="MainAddButton" Content="Добавить" Margin="0,10,10,0" VerticalAlignment="Top" Click="MainAddButton_Click" Height="22" HorizontalAlignment="Right" Width="75"/>
         <TextBox x:Name="FindValue" Margin="94,10,641,0" TextWrapping="Wrap" TextChanged="FindValue_TextChanged" Height="23" VerticalAlignment="Top"/>
         <Button x:Name="MainOpenButton" Content="Открыть" Margin="0,11,90,0" Click="MainOpenButton_Click" HorizontalAlignment="Right" Width="75" Height="22" VerticalAlignment="Top"/>
-        <DataGrid x:Name="BookBaseDataGrid" Margin="10,38,10,10" SelectionChanged="BookBaseDataGrid_SelectionChanged" Focusable="True" IsTextSearchEnabled="True" MaxColumnWidth="250" MinColumnWidth="10" AutoGenerateColumns="True" />
+        <DataGrid x:Name="BookBaseDataGrid" Margin="10,38,10,10" SelectionChanged="BookBaseDataGrid_SelectionChanged" Focusable="True" IsTextSearchEnabled="True" MaxColumnWidth="250" MinColumnWidth="10" AutoGenerateColumns="True" IsManipulationEnabled="True" EnableColumnVirtualization="True" AllowDrop="True" >
+            <DataGrid.CacheMode>
+                <BitmapCache EnableClearType="True"/>
+            </DataGrid.CacheMode>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Обновить" Click="RefreshMainDataGrid_Click"></MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
     </Grid>
 </Window>
